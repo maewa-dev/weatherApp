@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Weather } from '../interfaces/weather';
+import { WeatherService } from '../services/weather.service';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
-  constructor() {}
+  weather: Weather ;
+  
+  constructor(private weatherService: WeatherService) { }
+  
+  ngOnInit() {
+    this.weatherService.weather.subscribe((resp:Weather) => {
+      this.weather = resp;
+    })
+  }
 
 }
