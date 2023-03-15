@@ -25,7 +25,7 @@
       <ion-item>
         <ion-label>
           <h2>Wind</h2>
-          <p>{{weather.current?.wind_kph}}, {{weather.current?.wind_dir }}</p>
+          <p>{{weather.current?.wind_kph}}, {{weather.current?.wind_dir | windDirection }}</p>
         </ion-label>
       </ion-item>
 

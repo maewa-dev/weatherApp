@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CardComponent } from './card/card.component';
 import { IonicModule } from '@ionic/angular';
 import { SearchbarComponent } from './searchbar/searchbar.component';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 
@@ -14,6 +15,7 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
   imports: [
     CommonModule,
     IonicModule,
+    PipesModule
   ],
   exports: [
     CardComponent,
