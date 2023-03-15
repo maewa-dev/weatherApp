@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { debounceTime, Subject } from 'rxjs';
 import { Weather } from '../interfaces/weather';
 import { WeatherService } from '../services/weather.service';
 
@@ -11,11 +12,12 @@ export class HomePage {
   weather: Weather ;
   
   constructor(private weatherService: WeatherService) { }
-  
+
   ngOnInit() {
     this.weatherService.weather.subscribe((resp:Weather) => {
       this.weather = resp;
     })
+    console.log('de home',this.weather)
   }
 
 }

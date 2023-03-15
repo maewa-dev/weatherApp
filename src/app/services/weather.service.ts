@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { emit } from 'process';
+import { HttpClient } from '@angular/common/http';
+import { Weather } from '../interfaces/weather';
 
 
 @Injectable({
@@ -9,13 +9,11 @@ import { emit } from 'process';
 })
 export class WeatherService {
 
-  _weather = new BehaviorSubject( {} );  //todo_mrt crear interfaz
+  _weather = new BehaviorSubject( {} );
+  predeterminatedLocation:string = 'lanzarote'
 
   constructor(private http: HttpClient ) { 
-    this.getWeather('lanzarote').subscribe(resp => {
-      console.log('ahora siasde', resp)
-      this._weather.next(resp)
-    })
+    this.search(this.predeterminatedLocation)
   }
 
   apikey: string = '084ff68a23374743842160026231403';
@@ -23,13 +21,19 @@ export class WeatherService {
   format: string = 'json';
   aqi: string = 'no'; //yes
 
-  getWeather(query:string): Observable<any> {
+  getWeather(query:string): Observable<Weather | {}> {
     const url = `${ this.url }${ this.format }?key=${ this.apikey }&q=${ query }&aqi=${ this.aqi }`
     return this.http.get(url);
   }
 
-  get weather():any {
+  get weather():Observable<any> {
     return this._weather.asObservable();
   }
 
+  search(location:string) {
+    this.getWeather(location).subscribe(resp => {
+      console.log('desde service', resp)
+      this._weather.next(resp)
+    })
+  }
 }

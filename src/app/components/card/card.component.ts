@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Weather } from 'src/app/interfaces/weather';
 import { WeatherService } from 'src/app/services/weather.service';
 
@@ -7,18 +7,42 @@ import { WeatherService } from 'src/app/services/weather.service';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
 })
-export class CardComponent  implements OnInit {
+export class CardComponent  implements OnInit, OnChanges {
 
-  @Input() prueba1: Weather 
+  @Input() weather: Weather 
 
+  constructor() { }
 
- weather: Weather ;
+  ngOnInit() { }
 
-  constructor( private weatherService: WeatherService) { }
+  ngOnChanges(): void {
+    console.log('de card al cargar change', this.weather)
+    this.windDirection()
+  }
 
-  ngOnInit() {
-    this.weatherService.weather.subscribe((resp:Weather) => {
-      this.weather = resp;
-    })
+  //todo_mrt mover a un pipe personalizado
+  windDirection() {
+    let windDirection = this.weather.current?.wind_dir
+    console.log(windDirection)
+
+    const windDirections: {[key:string]:string} = {
+      N: 'North',
+      NNE: 'North-Northeast',
+      NE: 'Northeast',
+      ENE: 'East-Northeast',
+      E:'East',
+      ESE: 'East-Southeast',
+      SE: 'Southeast',
+      SSE:'South-Southeast',
+      S: 'South',
+      SSW: 'South-Southwest',
+      SW: 'Southwest',
+      WSW: 'West-Southwest',
+      W: 'West',
+      WNW: 'West-Northwest',
+      NW: 'Northwest',
+      NNW: 'North-Northwest'
+    }
+    console.log('aqui esta wey', windDirections[windDirection]);
   }
 }
