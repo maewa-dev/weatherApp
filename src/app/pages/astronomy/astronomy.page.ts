@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AstronomyService } from '../../services/astronomy.service';
+import { Astronomy } from '../../interfaces/astronomy';
 
 @Component({
   selector: 'app-astronomy',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AstronomyPage implements OnInit {
 
-  constructor() { }
+  constructor( private astronomyService: AstronomyService) { }
+
+  astronomy: Astronomy; 
+
 
   ngOnInit() {
+    this.astronomyService.astronomy.subscribe(resp => {
+      this.astronomy = resp;
+      console.log('resp de astro', resp)
+    })
   }
 
 }

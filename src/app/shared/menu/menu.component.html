@@ -7,7 +7,7 @@
   <ion-content class="ion-padding">
     <ion-list>
       <ion-item *ngFor="let menuItem of menuList" [routerLink]="menuItem.path"> 
-        <ion-icon [name]="menuItem.icon"></ion-icon>
+        <ion-icon [name]="menuItem.icon" style="margin-right: 5px;"></ion-icon> 
         {{menuItem.name}}
       </ion-item>
     </ion-list>
