@@ -1,0 +1,41 @@
+<app-location-card [location]="astronomy?.location"></app-location-card>
+
+<ion-card >
+  <ion-card-header>
+    <ion-card-title>Moon phase</ion-card-title>
+    <ion-card-subtitle>{{astronomy?.astronomy?.astro?.moon_phase}}</ion-card-subtitle>
+    <ion-card-title>Moon illumination: {{astronomy?.astronomy?.astro?.moon_illumination}} </ion-card-title>
+    <ion-card-subtitle></ion-card-subtitle>
+  </ion-card-header>
+</ion-card>
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Solar cycle</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+
+    <ion-row>
+      <ion-col size="6" class="text-center">
+        <img src="assets/icon/sunrise.png" alt="">
+        <ion-card-subtitle class="fs-20"> {{astronomy?.astronomy?.astro?.sunrise}} </ion-card-subtitle>
+      </ion-col>
+      <ion-col size="6" class="text-center">
+        <img src="assets/icon/sunset.png" alt="">
+        <ion-card-subtitle class="fs-20"> {{astronomy?.astronomy?.astro?.sunset}} </ion-card-subtitle>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6" class="text-center">
+        <img src="assets/icon/moonrise.png" alt="">
+        <ion-card-subtitle class="fs-20"> {{astronomy?.astronomy?.astro?.moonrise}} </ion-card-subtitle>
+      </ion-col>
+      <ion-col size="6" class="text-center">
+        <img src="assets/icon/moonset.png" alt="">
+        <ion-card-subtitle class="fs-20"> {{astronomy?.astronomy?.astro?.moonset}} </ion-card-subtitle>
+      </ion-col>
+    </ion-row>
+
+  </ion-card-content>
+</ion-card>

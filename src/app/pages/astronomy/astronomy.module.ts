@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { AstronomyPageRoutingModule } from './astronomy-routing.module';
 
 import { AstronomyPage } from './astronomy.page';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AstronomyPageRoutingModule
+    AstronomyPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [AstronomyPage]
 })

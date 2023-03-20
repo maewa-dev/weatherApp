@@ -4,13 +4,17 @@ import { CardComponent } from './card/card.component';
 import { IonicModule } from '@ionic/angular';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { PipesModule } from '../pipes/pipes.module';
+import { AstronomyCardComponent } from './astronomy-card/astronomy-card.component';
+import { LocationCardComponent } from './location-card/location-card.component';
 
 
 
 @NgModule({
   declarations: [
     CardComponent,
-    SearchbarComponent
+    LocationCardComponent,
+    SearchbarComponent,
+    AstronomyCardComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +23,9 @@ import { PipesModule } from '../pipes/pipes.module';
   ],
   exports: [
     CardComponent,
-    SearchbarComponent
+    LocationCardComponent,
+    SearchbarComponent,
+    AstronomyCardComponent
   ]
 })
 export class ComponentsModule { }

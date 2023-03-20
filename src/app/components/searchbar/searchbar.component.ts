@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { WeatherService } from 'src/app/services/weather.service';
+import { AstronomyService } from '../../services/astronomy.service';
 
 @Component({
   selector: 'app-searchbar',
@@ -8,13 +9,18 @@ import { WeatherService } from 'src/app/services/weather.service';
 })
 export class SearchbarComponent  implements OnInit {
 
-  constructor(private weatherService: WeatherService) { }
+  constructor(
+    private weatherService: WeatherService,
+    private astronomyService : AstronomyService
+  ) { }
 
   ngOnInit() {
   }
 
+
   handleLocation(location:string) {
     this.weatherService.search(location)
+    this.astronomyService.search(location)
   }
 
   onKeyPressed(event: any) {
