@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { debounceTime, Subject } from 'rxjs';
-import { Weather } from '../interfaces/weather';
-import { WeatherService } from '../services/weather.service';
+import { Weather } from '../../interfaces/weather';
+import { WeatherService } from '../../services/weather.service';
 
 @Component({
   selector: 'app-home',
