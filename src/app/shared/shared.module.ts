@@ -3,20 +3,25 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { ComponentsModule } from '../components/components.module';
 import { HeaderComponent } from './header/header.component';
+import { MenuComponent } from './menu/menu.component';
+import { RouterModule } from '@angular/router';
 
 
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    MenuComponent
   ],
   imports: [
     CommonModule,
     IonicModule,
+    RouterModule,
     ComponentsModule
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    MenuComponent
   ]
 })
 export class SharedModule { }

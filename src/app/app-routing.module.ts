@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
+    path: 'astronomy',
+    loadChildren: () => import('./pages/astronomy/astronomy.module').then( m => m.AstronomyPageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'

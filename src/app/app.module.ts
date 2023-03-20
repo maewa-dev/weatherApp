@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PipesModule } from './pipes/pipes.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PipesModule } from './pipes/pipes.module';
     IonicModule.forRoot(), 
     AppRoutingModule,
     HttpClientModule,
-    PipesModule
+    PipesModule,
+    SharedModule
   ],
   providers: [
     { provide: RouteReuseStrategy, 
